@@ -1,12 +1,13 @@
-const express = require('express');
-const AuthController = require('../controllers/auth.controller');
+import express from 'express';
+import AuthController from '../controllers/auth.controller.js';
+import User from '../models/user.model.js';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 const router = express.Router();
+const authController = new AuthController(User, jwt, bcrypt);
 
-// Route for user registration
-router.post('/register', AuthController.register);
+router.post('/register', (req, res) => authController.register(req, res));
+router.post('/login', (req, res) => authController.login(req, res));
 
-// Route for user login
-router.post('/login', AuthController.login);
-
-module.exports = router;
+export default router;
