@@ -47,48 +47,52 @@ role-based-access-app
 ## Installation
 
 1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
+
+    ```
+    git clone <repository-url>
+    ```
 
 2. Navigate to the project directory:
-   ```
-   cd role-based-access-app
-   ```
+
+    ```
+    cd role-based-access-app
+    ```
 
 3. Install the dependencies:
-   ```
-   npm install
-   ```
+
+    ```
+    npm install
+    ```
 
 4. Create a `.env` file in the root directory and add your database credentials and JWT secret:
-   ```
-   DB_HOST=your_database_host
-   DB_USER=your_database_user
-   DB_PASSWORD=your_database_password
-   DB_NAME=your_database_name
-   JWT_SECRET=your_jwt_secret
-   ```
+    ```
+    DB_HOST=your_database_host
+    DB_USER=your_database_user
+    DB_PASSWORD=your_database_password
+    DB_NAME=your_database_name
+    JWT_SECRET=your_jwt_secret
+    ```
 
 ## Usage
 
 1. Start the application:
-   ```
-   npm start
-   ```
+
+    ```
+    npm start
+    ```
 
 2. The server will run on `http://localhost:3000`.
 
 ## API Endpoints
 
 - **Authentication**
-  - `POST /api/auth/register` - Register a new user
-  - `POST /api/auth/login` - Login an existing user
+    - `POST /api/auth/register` - Register a new user
+    - `POST /api/auth/login` - Login an existing user
 
 - **User Management**
-  - `GET /api/users` - Retrieve all users (Admin only)
-  - `GET /api/users/:id` - Retrieve user information by ID
-  - `PUT /api/users/:id` - Update user profile
+    - `GET /api/users` - Retrieve all users (Admin only)
+    - `GET /api/users/:id` - Retrieve user information by ID
+    - `PUT /api/users/:id` - Update user profile
 
 ## Contributing
 

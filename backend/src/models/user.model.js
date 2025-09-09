@@ -11,7 +11,7 @@ class User {
     }
 
     static create(newUser, result) {
-        db.query("INSERT INTO users SET ?", newUser, (err, res) => {
+        db.query('INSERT INTO users SET ?', newUser, (err, res) => {
             if (err) {
                 result(err, null);
                 return;
@@ -21,7 +21,7 @@ class User {
     }
 
     static findById(userId, result) {
-        db.query("SELECT * FROM users WHERE id = ?", userId, (err, res) => {
+        db.query('SELECT * FROM users WHERE id = ?', userId, (err, res) => {
             if (err) {
                 result(err, null);
                 return;
@@ -30,22 +30,26 @@ class User {
                 result(null, res[0]);
                 return;
             }
-            result({ kind: "not_found" }, null);
+            result({ kind: 'not_found' }, null);
         });
     }
 
     static findByUsername(username, result) {
-        db.query("SELECT * FROM users WHERE username = ?", username, (err, res) => {
-            if (err) {
-                result(err, null);
-                return;
+        db.query(
+            'SELECT * FROM users WHERE username = ?',
+            username,
+            (err, res) => {
+                if (err) {
+                    result(err, null);
+                    return;
+                }
+                if (res.length) {
+                    result(null, res[0]);
+                    return;
+                }
+                result({ kind: 'not_found' }, null);
             }
-            if (res.length) {
-                result(null, res[0]);
-                return;
-            }
-            result({ kind: "not_found" }, null);
-        });
+        );
     }
 }
 

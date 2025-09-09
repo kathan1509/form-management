@@ -18,11 +18,13 @@ const comparePassword = async (password, hashedPassword) => {
 
 // Function to generate a JWT token
 const generateToken = (user) => {
-    return jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    return jwt.sign({ id: user.id, role: user.role }, process.env.JWT_SECRET, {
+        expiresIn: '1h',
+    });
 };
 
 module.exports = {
     hashPassword,
     comparePassword,
-    generateToken
+    generateToken,
 };
